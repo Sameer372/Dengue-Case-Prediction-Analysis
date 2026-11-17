@@ -1,202 +1,230 @@
 
+# Dengue Case Prediction and Analysis
 
-\# Dengue Case Prediction and Analysis
+An experimental machine learning project focused on dengue case analysis, time-series forecasting, spatial exploration, and blood reserve planning using historical dengue data from Bangladesh.
 
+## Project Overview
 
+This project explores historical dengue cases in Bangladesh using machine learning, deep learning, statistical forecasting, and ensemble learning techniques.
 
-An experimental machine learning project for dengue case analysis, time-series forecasting, spatial exploration, and blood reserve planning using historical dengue data from Bangladesh.
+It combines multiple forecasting models to investigate dengue trends and estimate future case patterns. The project also includes regional spatial analysis, dengue risk classification, and an experimental blood reserve planning framework.
 
+## Project Objectives
 
+- Analyze historical dengue case trends in Bangladesh.
+- Forecast future dengue cases using machine learning and deep learning models.
+- Compare different forecasting approaches.
+- Explore regional dengue case distributions across eight divisions.
+- Investigate spatial patterns using clustering and spatial autocorrelation techniques.
+- Perform experimental dengue risk classification.
+- Estimate potential blood reserve requirements through an experimental planning framework.
 
-\## Project Overview
+## Dataset
 
+The project uses historical dengue data from Bangladesh.
 
+**Dataset Information:**
 
-This project explores historical dengue cases using machine learning, deep learning, statistical forecasting, and ensemble learning techniques.
+- File Name: `Dengue.xlsx`
+- Total Records: 51
+- Total Features: 20
+- Data Coverage: September 2019 – October 2025
+- Geographic Coverage: Eight divisions of Bangladesh.
 
+The dataset includes monthly dengue cases, deaths, and division-wise case and death records.
 
+### Dataset Source and Usage Permission
 
-It also includes regional spatial analysis, dengue risk classification, and an experimental blood reserve planning framework.
+- Dataset: Dengue.xlsx
+- Public Distribution Permission: Confirmed.
+- Original Source: [Add the original dataset source URL here.]
 
+The dataset is included in this repository with permission for public distribution.
 
+## Methodology
 
-\## Project Objectives
+The project follows several analytical and modeling approaches.
 
+### 1. Data Preprocessing
 
+- Data loading and inspection.
+- Data cleaning and preparation.
+- Date generation using year and month information.
+- Chronological sorting.
+- Feature scaling.
+- Time-series sequence preparation.
 
-\- Analyze historical dengue trends.
+### 2. Time-Series Forecasting
 
-\- Forecast future dengue cases.
+The following models are explored for dengue case forecasting:
 
-\- Compare different machine learning models.
+- **LSTM (Long Short-Term Memory):** A recurrent neural network architecture for learning sequential patterns.
+- **GRU (Gated Recurrent Unit):** A recurrent architecture for sequence modeling.
+- **SimpleRNN:** A basic recurrent neural network for time-series analysis.
+- **Prophet:** A statistical forecasting model for analyzing temporal trends.
 
-\- Explore regional dengue case distributions.
+### 3. Stacked Ensemble Learning
 
-\- Perform experimental spatial analysis.
+An XGBoost Regressor is used as the meta-learner in a stacking ensemble approach to combine predictions from the base forecasting models.
 
-\- Estimate potential blood reserve requirements.
+### 4. Spatial Analysis
 
+The project explores regional spatial patterns using:
 
+- **DBSCAN:** Density-based clustering for geographic exploration.
+- **Moran's I:** Spatial autocorrelation analysis.
 
-\## Models and Techniques
+### 5. Dengue Risk Classification
 
+An experimental classification approach is included to explore dengue risk categories.
 
+### 6. Future Forecasting
 
-\- LSTM
+The forecasting pipeline generates experimental dengue case predictions for the next six months based on historical patterns.
 
-\- GRU
+### 7. Blood Reserve Planning
 
-\- SimpleRNN
+An experimental framework estimates potential blood reserve requirements and regional allocation using predefined assumptions, including severity rates, estimated units per patient, safety buffers, and hotspot adjustments.
 
-\- Prophet
+## Model Evaluation
 
-\- XGBoost Stacking Ensemble
+The project explores different evaluation metrics for forecasting and classification tasks.
 
-\- DBSCAN Clustering
+**Forecasting Metrics:**
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- Weighted Mean Absolute Percentage Error (WMAPE)
 
-\- Moran's I
+**Classification Metrics:**
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Matthews Correlation Coefficient (MCC)
+- ROC-AUC
 
+Actual performance values should be interpreted alongside the dataset limitations and validation methodology.
 
+## Technologies Used
 
-\## Dataset
+**Programming Language**
+- Python
 
+**Data Analysis and Visualization**
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
 
+**Machine Learning and Deep Learning**
+- Scikit-learn
+- TensorFlow / Keras
+- XGBoost
+- Prophet
 
-\- File: Dengue.xlsx
+**Development Environment**
+- Jupyter Notebook
 
-\- Records: 51
-
-\- Features: 20
-
-\- Coverage: September 2019 – October 2025
-
-\- Geographic Coverage: Eight divisions of Bangladesh.
-
-
-
-Dataset source and usage permission should be documented before public release.
-
-
-
-\## Technologies Used
-
-
-
-\- Python
-
-\- Pandas
-
-\- NumPy
-
-\- Matplotlib
-
-\- Seaborn
-
-\- Scikit-learn
-
-\- TensorFlow / Keras
-
-\- Prophet
-
-\- XGBoost
-
-\- Jupyter Notebook
-
-
-
-\## Project Structure
-
-
+## Project Structure
 
 ```text
-
 Dengue-Case-Prediction-Analysis/
-
+│
 ├── Dengue.xlsx
-
-├── dengue\_analysis.ipynb
-
-├── dengue\_analysis.py
-
-├── model\_flowchart.py
-
+├── dengue_analysis.ipynb
+├── dengue_analysis.py
+├── model_flowchart.py
 ├── requirements.txt
-
 ├── README.md
-
-└── .gitignore
-
+├── .gitignore
+└── .gitattributes
 ```
 
+## Installation and Setup
 
-
-\## How to Run
-
-
-
-Install dependencies:
-
-
+### 1. Clone the Repository
 
 ```bash
+git clone https://github.com/Sameer372/Dengue-Case-Prediction-Analysis.git
+```
 
+### 2. Navigate to the Project Directory
+
+```bash
+cd Dengue-Case-Prediction-Analysis
+```
+
+### 3. Create a Virtual Environment (Optional)
+
+```bash
+python -m venv .venv
+```
+
+Activate the environment on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 4. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-
 ```
 
+## How to Run
 
-
-Run the Python script:
-
-
+### Run the Python Pipeline
 
 ```bash
-
-python dengue\_analysis.py
-
+python dengue_analysis.py
 ```
 
-
-
-Alternatively, open the Jupyter Notebook:
-
-
+### Run the Jupyter Notebook
 
 ```bash
-
-jupyter notebook dengue\_analysis.ipynb
-
+jupyter notebook dengue_analysis.ipynb
 ```
 
+Alternatively, open the notebook using JupyterLab or Visual Studio Code.
 
+### Generate the Model Flowchart
 
-\## Limitations
+```bash
+python model_flowchart.py
+```
 
+## Limitations
 
+- The dataset contains missing calendar periods, which may affect time-series sequence preparation and forecasting.
+- The relatively small dataset limits the amount of historical information available for model training.
+- The Jupyter Notebook and Python script currently contain implementation differences.
+- Forecasting results require further validation using appropriate chronological evaluation methods.
+- Spatial clustering results are exploratory and should not be interpreted as confirmed dengue hotspots.
+- Blood reserve estimates rely on predefined experimental assumptions rather than validated medical guidelines.
 
-\- The dataset contains missing calendar periods.
+## Future Improvements
 
-\- Forecasting results require further validation.
+- Improve missing-period handling and data preprocessing.
+- Synchronize the Jupyter Notebook and Python implementations.
+- Improve time-series validation and forecasting reliability.
+- Explore additional forecasting and ensemble learning techniques.
+- Refine regional spatial analysis and hotspot identification.
+- Validate dengue risk classification approaches.
+- Improve blood reserve estimation using reliable epidemiological data and expert-reviewed assumptions.
 
-\- The notebook and Python script have implementation differences.
+## Disclaimer
 
-\- Spatial analysis and blood reserve estimates are experimental.
+This project is developed for academic and research purposes.
 
+The forecasting outputs, spatial analysis, risk classification, and blood reserve estimates are experimental. They should not be considered medical advice or used as standalone evidence for clinical, public health, or blood bank operational decisions.
 
+## Author
 
-\## Future Improvements
+**Shaikh Sameer**
 
+GitHub: [@Sameer372](https://github.com/Sameer372)
 
+---
 
-\- Improve missing-period handling.
-
-\- Synchronize notebook and Python implementations.
-
-\- Improve forecasting validation.
-
-\- Refine spatial analysis.
-
-\- Validate experimental assumptions using reliable external data.
-
-
-
+If you find this project useful, feel free to explore the repository and its implementation.
